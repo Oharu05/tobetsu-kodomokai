@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag 'news'%>
+<ul class="breadcrumbs">
+  <li><a href="/"><span class="fas fa-caret-right"></span>ホーム</a></li>
+  <li><a href="/"><span class="fas fa-caret-right"></span>トピック＆ニュース</a></li>
+  <li><a href="/news"><span class="fas fa-caret-right"></span><%= @news.title %></a></li>
+</ul>
+<article class="kiji">
+  <h2>トピック＆ニュース</h2>
+  <p>記事カテゴリー：［情報とニュース］<%= @news.date%></p>
+  <div class="news">
+    <h3><%= @news.title %></h3>
+    <p class="newsDetail">
+      <%= @news.detail%>
+    </p>
+    <% @news.imageUrlList.split(",").each do |imageUrl| %>
+        <img src="<%= imageUrl %>">
+    <% end %>
+  </div>
+</article>
+<div class="side">
+  <div class="rengokukai">
+    <h3>当別町子ども会育成連合会<span class="box"></span></h3>
+    <div class="logo2"><img src="/rengoukai.png"></div>
+    <p>遊びは学び　子ども会活動</p>
+  </div>
+  <div class="mymenu">
+    <h3>マイメニュー<span id="box"></span></h3>
+    <ul class="my-menus">
+      <li><a href="/"><span class="fas fa-caret-right"></span>事業予定</a></li>
+      <li><a href="/event"><span class="fas fa-caret-right"></span>年間行事</a></li>
+      <li><a href="/junior"><span class="fas fa-caret-right"></span>当別町ジュニアリーダーサークル「Ezo.jr」</a></li>
+    </ul>
+  </div>
+  <div class="tab">
+    <img src="/tobetsu.banner.png">
+  </div>
+</div>

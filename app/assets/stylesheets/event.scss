@@ -1,0 +1,196 @@
+/* BASE COLORS */
+$brand-color:#B5D569;
+$fontcolor:#74645C;
+$sub-fontcolor:#ffffff;
+$brand-sub-color:#EDE795;
+$line-color:#E5E5E5;
+
+.breadcrumbs {
+    display: flex;
+    padding: 0px;
+    list-style: none;
+}
+.breadcrumbs li {
+    padding-top: 5px;
+    padding-right: 15px;
+    height: 20px;
+}
+.breadcrumbs li a {
+    display: inline-block;
+    text-decoration: none;
+    color: $fontcolor;
+} 
+.fa-caret-right {
+    color: $brand-color;
+    font-size: larger;
+    padding-right: 5px;
+}
+.kiji h2 {
+    color: $fontcolor;
+    border-bottom: solid 1px $brand-color;
+    font-weight: bold;
+    font-size: 20px;
+}
+.kiji p {
+    display: block;
+    font-weight: bold;
+    color: $fontcolor;
+}
+.kiji h3 {
+    color: $fontcolor;
+    font-weight: bold;
+    font-size: 20px; 
+}
+.event {
+    margin-left: -40px;
+    list-style: none;
+}
+#eventDetail {
+    padding-left: 15px;
+}
+.eventImage1 {
+    padding-top: 10px;
+    padding-left: 15px;
+}
+.eventImage2 {
+    padding-top: 10px;
+    padding-left: 15px;
+}
+.map iframe {
+    width: 600px; 
+    height: 450px;
+}
+.side {
+    padding-top: 7px;
+    color: $fontcolor;
+}
+.side h3 {
+    border-bottom: solid 1px $brand-color;
+}
+.side h3 span {
+    margin-right: 0px;
+    margin-left: auto;
+    width: 10px;
+    height: 10px;
+    background-color: $brand-color;
+}
+.my-menus {
+    list-style: none;
+}
+.my-menus a{
+    display: flex;
+    align-items: baseline;
+    padding: 5px;
+    text-decoration: none;
+    color: $fontcolor;
+}
+.my-menus span {
+    margin-left: -35px;
+    margin-right: 7px;
+    color: $brand-color;
+    font-size: larger;
+}
+/* グリッド */
+main {
+    display: grid;
+    grid-template-columns: [left] 80px [main] auto [breadcrumbs-end] 0px [main-end] 90px [side] 300px [side-end] 80px [right];
+    grid-template-rows: [breadcrumbs] auto [breadcrumbs-end] 0px [main] auto [foot] auto [bottom];
+}
+.breadcrumbs {
+    grid-column-start: main;
+    grid-column-end: breadcrumbs-end;
+    grid-row-start: breadcrumbs;
+    grid-row-end: breadcrumbs-end;
+}
+.kiji {
+    grid-column-start: main;
+    grid-column-end: main-end;
+    grid-row-start: main;
+    grid-row-end: foot;
+}
+.side {
+    grid-column-start: side;
+    grid-column-end: side-end;
+    grid-row-start: main;
+    grid-row-end: foot;
+}
+/* ######### 1089px以下 ######### */
+@media (max-width: 1089px) {
+    main {
+        grid-template-columns: [left] 30px [main] auto [breadcrumbs-end] 0px [main-end] 60px [side] 300px [side-end] 30px [right];
+        grid-template-rows: [breadcrumbs] auto [breadcrumbs-end] 0px [main] auto [foot] auto [bottom];
+    }
+    .breadcrumbs {
+        grid-column-start: main;
+        grid-row-start: breadcrumbs-end;
+        grid-row-start: breadcrumbs;
+        grid-row-end: breadcrumbs-end;
+    }
+    .kiji {
+        grid-column-start: main;
+        grid-column-end: main-end;
+        grid-row-start: main;
+        grid-row-end: foot;
+    }
+    .side {
+        grid-column-start: side;
+        grid-column-end: side-end;
+        grid-row-start: main;
+        grid-row-end: foot; 
+    }
+}
+/* ######### 767px以下 ######### */ 
+@media screen and (max-width: 767px) {
+    main {
+        grid-template-columns: [left] 30px [main] auto [main-end] 30px [right];
+        grid-template-rows: [nav] 30px [main] auto [main-end] 30px [side] auto [side-end] 30px [foot] auto [bottom];
+    }
+    .breadcrumbs li a {
+        display: none;
+    }
+    .kiji {
+        grid-row-start: main;
+        grid-row-end: main-end;
+    }
+    .kiji h2 {
+        text-align: center;
+    }
+    .side {
+        grid-column-start: main;
+        grid-column-end: main-end;
+        grid-row-start: side;
+        grid-row-end: side-end; 
+    }
+}
+/* ######### 415px以下 ######### */
+@media (max-width: 415px) {
+    main {
+        grid-template-columns: [left] 30px [main] auto [main-end] 30px [right];
+        grid-template-rows: [nav] 0px [main] auto [main-end] 30px [side] auto [side-end] 30px [foot] auto [bottom];
+    }
+    .breadcrumbs li a {
+        display: none;
+    }
+    .kiji {
+        grid-column-start: main;
+        grid-column-end: main-end;
+        grid-row-start: main;
+        grid-row-end: main-end;
+    }
+    .kiji h2 {
+        text-align: center;
+    }
+    .kiji p {
+        font-size: 14px;
+    }
+    .map iframe  {
+        width: 300px; 
+        height: 200px;
+    }
+    .side {
+        grid-column-start: main;
+        grid-column-end: main-end;
+        grid-row-start: side;
+        grid-row-end: side-end; 
+    }
+}

@@ -1,0 +1,217 @@
+/* BASE COLORS */
+$brand-color:#B5D569;
+$fontcolor:#74645C;
+$sub-fontcolor:#ffffff;
+$brand-sub-color:#EDE795;
+$line-color:#E5E5E5;
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Source Sans Pro','メイリオ','Hiragino Kaku Gothic Pro',sans-serif;
+}
+header {
+    width: 100%;
+    height: auto;
+}
+header::before{
+    /*三角形左上*/
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    border-left: 480px solid $brand-sub-color;
+    border-bottom: 200px solid transparent;
+}
+.logo img{
+    display: block;
+    position: absolute;
+    top: 20px;
+    width: 180px;
+    height: 50px;
+}
+.title a {
+    color: $brand-color;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Paytone One',sans-serif;
+    text-decoration: none;
+}
+/*トグルボタン */
+button {
+    display: none;
+    padding: 6px;
+    border: none;
+    background-color: transparent;
+    color: $brand-color;
+    font-size: 28px;
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+}
+/*ナビゲーションメニュー */
+.menu ul {
+    text-align: center;
+    display: flex;
+    margin: 0;
+    padding: 0px;
+    list-style: none;
+}
+.menu li {
+    flex: 1 1 0;
+    background-color: $brand-color;
+    padding: 5px;
+    margin-right: 5px;
+    height: 40px;
+}
+.menu li:hover {
+    background-color: $brand-sub-color;
+}
+.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 20px;
+    padding-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: $sub-fontcolor;
+    font-size: 14px;
+}
+/*フッター*/
+footer {
+    margin-top: 30px;
+    height: 130px;
+    background-color: $brand-color;
+
+}
+.footer-texts {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+footer p {
+    line-height: 18px;
+    font-size: 15px;
+    padding: 0;
+    color: $sub-fontcolor;
+    text-align: center;
+}
+/*　グリッド */
+header {
+    display: grid;
+    grid-template-columns: [left] 80px [logo] auto [logo-end] 90px [sankaku-end] auto [title] auto [title-end] auto [nav-end] 80px [right];
+    grid-template-rows: [top] 30px [logo] auto [logo-end] 50px [title] auto [title-end] 60px [nav] auto [nav-end]; 
+}
+.title {
+    grid-column-start: title;
+    grid-column-end: title-end;
+    grid-row-start: title;
+    grid-row-end: title-end;
+}
+.menu {
+    grid-column-start: logo;
+    grid-column-end: nav-end;
+    grid-row-start: nav;
+    grid-row-end: nav-end;
+}
+
+/* ######### 1089px以下 ######### */ 
+@media screen and (max-width: 1089px) {
+    header {
+        display: grid;
+        grid-template-columns: [left] 30px [logo] auto [logo-end] 50px [sankaku-end] auto [title] auto [title-end] auto [nav-end] 30px[right];
+        grid-template-rows: [top] 30px [logo] auto [logo-end] 50px [title] auto [title-end] 60px [nav] auto [nav-end]; 
+    }
+    .logo img {
+        grid-column-start: logo;
+        grid-column-end: logo-end;
+        grid-row-start: logo;
+        grid-row-end: logo-end;
+    }
+    .title {
+        grid-column-start: title;
+        grid-column-end: title-end;
+        grid-row-start: title;
+        grid-row-end: title-end;
+    }
+    .menu {
+        grid-column-start: logo;
+        grid-column-end: nav-end;
+        grid-row-start: nav;
+    }
+    .menu li a {
+        padding-top: 12px;
+        font-size: 12px;
+        line-height: 20px;
+    } 
+}
+/* ######### 767px以下 ######### */ 
+@media screen and (max-width: 767px) {
+    header {
+        display: grid;
+        grid-template-columns: [left] 30px [logo] auto [logo-end] 57px [title] auto [sankaku-end] auto [title-end] 20px [nav] auto [nav-end] 30px[right];
+        grid-template-rows: [top] 30px [logo] auto [logo-end] 5px [title] auto [title-end] 20px [nav] auto [nav-end]; 
+    }
+    header::before{
+        /*三角形左上*/
+        content: '';
+        position: relative;
+        top: 0;
+        left: 0;
+        border-left: 200px solid $brand-sub-color;
+        border-bottom: 80px solid transparent;
+    }
+    .logo img{
+        display: block;
+        position: absolute;
+        top: 10px;
+        width: 100px;
+        height: 30px;
+    }
+    .title a {
+        text-align: center;
+        font-size: 25px;
+    }
+    button {
+        grid-column-start: nav;
+        grid-column-end: nav-end;
+        grid-row-start: logo;
+        grid-row-end: logo-end;
+        justify-self: end;
+        align-self: center;
+        display: block;
+    }
+    .menu {
+        grid-row-start: nav;
+        justify-self: stretch;
+        display: block;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+    }
+    .menu ul {
+        text-align: left;
+        display: block;
+        margin: 0;
+        padding: 0px;
+        list-style: none;
+    }
+    .menu li {
+        padding: 5px;
+        margin-right: 5px;
+        height: 40px;
+        background-color: $sub-fontcolor;
+    }
+    .menu li:hover {
+        background-color: $brand-color;
+    }
+    .menu li a {
+        width: 100%;
+        color: $brand-color;
+    }
+    .menu li a:hover {
+        color: $sub-fontcolor;
+    }
+}

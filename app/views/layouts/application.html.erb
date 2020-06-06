@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project4</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script>
+      function myFunc() {
+        var mymenu = document.querySelector(".menu");
+        if (mymenu.style.maxHeight) {
+          mymenu.style.maxHeight = null;
+        } else {
+          mymenu.style.maxHeight = mymenu.scrollHeight + "px";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="https://portal.town.tobetsu.hokkaido.jp"><img src="/Logo.png"></a>
+      </div>
+      <div class="title">
+        <a href="/">当別町こども会</a>
+      </div>
+      <button type="button" onclick="myFunc()">
+        <i class="far fa-bars"></i>
+        <span class="sr-only">MENU</span>
+      </button>
+      <div class="menu" style="max-height:null">
+          <ul "menu-inner">
+            <li><a href="https://portal.town.tobetsu.hokkaido.jp">「+Life TOBETSU」</a></li>
+            <li><a href="/">ホーム</a></li>
+            <li><a href="/slideshow">スライドショー</a></li>
+            <li><a href="/access">所在地・アクセス</a></li>
+            <li><a href="/infomation">お問い合わせ</a></li>
+          </ul>
+      </div>
+    </header>
+    <main>
+    <%= yield %>
+    </main>
+    <footer>
+      <div class="footer-texts">
+        <p class="tittle">当別町子ども会育成連合会</p>
+        <p class="address">〒061-0233 石狩郡当別町白樺町2792総合体育館内 電話：0133-22-3834 ファックス：0133-22-3832</p>
+        <p class="copyright"> ©2010～当別町民 ALL Right Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

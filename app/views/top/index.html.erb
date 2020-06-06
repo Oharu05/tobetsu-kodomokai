@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag 'top' %>
+<article class="kiji">
+  <h2>遊びは学び　子ども会活動</h2>
+  <p>
+    こども会とは、地域のこどもたちが集まって組織された会で、そこに地域の大人たちが加わって、性別、年齢を超えていろいろな遊びを通して仲間作りなどをしていきます。
+    そして、さまざまな体験の中から連帯性、協調性、責任感などの社会性を身につけていこうという理念の元で活動している団体です。
+    現在、当別町には29地区の子ども会があり、キャンプやお楽しみ会などのレクリエーション活動、夏休みには
+    ラジオ体操、冬にはもちつきなどそれぞれの地区で様々な活動を行っています。また、連合会主催により
+    リーダー研修会や、各地区対抗で行われる大運動会・スーパードッジボール大会・新春カルタ大会など多くの
+    子どもが参加できる大会を催しています。
+    また、子ども会のリーダー組織として当別町ジュニアリーダーサークル「Ezo.Jr」の活動があります。
+    現在、中高生約40名が加入し、子どもたちのお兄さんお姉さん役として活躍しています。
+  </p>
+  <h2>トピック＆ニュース（最新<%= @newsList.length %>件）</h2>
+  <ul class= "topick-news-list">
+    <% @newsList.each do |news| %>
+    <li class= "topick-news">
+      <a href="/news/<%= news.id %>">
+        <img src="<%= news.imageUrlList.split(",").first %>" height="150px">
+        <div class="news-ditail">
+          <p id="news-title"><span class="far fa-external-link-alt"></span><%= news.title %></p>
+          <p id="news-date"><%= news.date %></p>
+        </div>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+  <p class="ichiran">RSS 2.0 「トピック＆ニュース」一覧</p>
+</article>
+<div class="side">
+  <div class="rengokukai">
+    <h3>当別町子ども会育成連合会<span class="box"></span></h3>
+    <div class="logo2"><img src="/rengoukai.png"></div>
+    <p>遊びは学び　子ども会活動</p>
+  </div>
+  <div class="mymenu">
+    <h3>マイメニュー<span id="box"></span></h3>
+    <ul class="my-menus">
+      <li><a href="/"><span class="fas fa-caret-right"></span>事業予定</a></li>
+      <li><a href="/event"><span class="fas fa-caret-right"></span>年間行事</a></li>
+      <li><a href="/junior"><span class="fas fa-caret-right"></span>当別町ジュニアリーダーサークル「Ezo.jr」</a></li>
+    </ul>
+  </div>
+  <div class="tab">
+    <img src="/tobetsu.banner.png">
+  </div>
+</div>
